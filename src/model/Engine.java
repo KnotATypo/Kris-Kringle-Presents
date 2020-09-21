@@ -1,10 +1,11 @@
 package model;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Engine
 {
-	private Map<String, Family> families;
+	private Map<String, Family> families = new HashMap<String, Family>();
 	
 	public void newFamily(String name)
 	{
@@ -20,5 +21,19 @@ public class Engine
 	public Map<String, Family> getFamilies()
 	{
 		return families;
+	}
+	
+	public int highNumOfMembers()
+	{
+		int most = 0;
+		
+		for(Family family : families.values())
+		{
+			int size = family.getSize();	
+			if (size > most)
+				most = size;
+		}
+		
+		return most;
 	}
 }
