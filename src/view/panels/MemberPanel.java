@@ -27,7 +27,10 @@ public class MemberPanel extends JPanel
 		JTextField memberField = new JTextField();
 		familySelection = new ComboBox();
 		
-		memberButton.addActionListener(new AddMemberListener(engine, frame, memberField, familySelection));
+		AddMemberListener listener = new AddMemberListener(engine, frame, memberField, familySelection);
+		
+		memberButton.addActionListener(listener);
+		memberField.addActionListener(listener);
 		
 		memberField.setColumns(10);
 		

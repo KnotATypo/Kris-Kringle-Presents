@@ -32,9 +32,11 @@ public class Frame extends JFrame
 		setVisible(true);
 	}
 
-	public void updateData()
+	public void updateData(boolean onlyTable)
 	{
 		table.updateData(engine.getFamilies());
-		upperPanel.updateData();
+		
+		if(!onlyTable)
+			upperPanel.updateData();
 	}
 }

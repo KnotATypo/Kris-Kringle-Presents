@@ -24,7 +24,9 @@ public class AddMemberListener extends AbstractListener
 	public void actionPerformed(ActionEvent e)
 	{
 		engine.addMember(familySelection.getSelectedItem(), field.getText());
-		frame.updateData();
+		field.setText("");
+		
+		frame.updateData(true);
 	}
 
 }

@@ -16,8 +16,11 @@ public class FamilyPanel extends JPanel
 	{
 		JTextField familyField = new JTextField();
 		JButton familyButton = new JButton("New Family");
+		
+		AddFamilyListener listener = new AddFamilyListener(engine, frame, familyField);
 
-		familyButton.addActionListener(new AddFamilyListener(engine, frame, familyField));
+		familyButton.addActionListener(listener);
+		familyField.addActionListener(listener);
 
 		familyField.setColumns(10);
 

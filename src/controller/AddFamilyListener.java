@@ -21,7 +21,7 @@ public class AddFamilyListener extends AbstractListener
 		engine.newFamily(field.getText());
 		field.setText("");
 		
-		frame.updateData();
+		frame.updateData(false);
 	}
 
 }
