@@ -8,7 +8,7 @@ import model.Engine;
 import view.Frame;
 import view.components.ComboBox;
 
-public class AddMemberListener extends AbstractListener
+public class AddMemberListener extends AbstractFrameListener
 {
 	private JTextField field;
 	private ComboBox familySelection;

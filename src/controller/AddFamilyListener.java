@@ -6,7 +6,7 @@ import javax.swing.JTextField;
 import model.Engine;
 import view.Frame;
 
-public class AddFamilyListener extends AbstractListener
+public class AddFamilyListener extends AbstractFrameListener
 {
 	private JTextField field;
 	
