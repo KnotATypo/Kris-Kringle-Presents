@@ -1,4 +1,4 @@
-package view;
+package view.panels;
 
 import java.awt.FlowLayout;
 
@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import model.Engine;
+import view.components.ComboBox;
 
 @SuppressWarnings("serial")
 public class MemberPanel extends JPanel

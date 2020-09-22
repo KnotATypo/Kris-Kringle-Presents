@@ -1,4 +1,4 @@
-package view;
+package view.panels;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -6,6 +6,8 @@ import javax.swing.JTextField;
 
 import controller.AddFamilyListener;
 import model.Engine;
+import view.Frame;
+import view.components.Table;
 
 @SuppressWarnings("serial")
 public class FamilyPanel extends JPanel

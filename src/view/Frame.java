@@ -4,6 +4,8 @@ import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import model.Engine;
+import view.components.Table;
+import view.panels.UpperPanel;
 
 @SuppressWarnings("serial")
 public class Frame extends JFrame

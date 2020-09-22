@@ -1,9 +1,11 @@
-package view;
+package view.panels;
 
 import java.awt.GridLayout;
 import javax.swing.JPanel;
 
 import model.Engine;
+import view.Frame;
+import view.components.Table;
 
 @SuppressWarnings("serial")
 public class UpperPanel extends JPanel
