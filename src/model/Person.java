@@ -3,21 +3,25 @@ package model;
 public class Person
 {
 	public String name;
-	private String giftTo;
-	public boolean used;
+	private Person giftTo;
 	
 	public Person(String name)
 	{
 		this.name = name;
 	}
 
-	public String getGiftTo()
+	public Person getGiftTo()
 	{
 		return giftTo;
 	}
 	
-	public void setGiftTo(String giftTo)
+	public void setGiftTo(Person person)
 	{
-		this.giftTo = giftTo;
+		giftTo = person;
+	}
+	
+	public String toString()
+	{
+		return String.format("Name: %s, Gifting To: %s", name, giftTo.name);
 	}
 }

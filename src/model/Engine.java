@@ -1,6 +1,8 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -44,16 +46,38 @@ public class Engine
 		{
 			Family family = entry.getValue();
 			for (int i = 0; i < family.getSize(); i++)
-			{
-				Person person = family.getPerson(i);
-				assignGiftee(person);
-			}
+				assignGiftees(family);
 		}
 	}
-	
-	private void assignGiftee(Person person)
+
+	private void assignGiftees(Family family)
 	{
-		int randomNum = random(families.size());
+		List<String> familyNames = new ArrayList<String>(families.keySet());
+		List<Person> used = new ArrayList<Person>();
+
+		for (int i = 0; i < family.getSize(); i++)
+		{
+			Person person = family.getPerson(i);
+			boolean stop = true;
+
+			while (stop)
+			{
+				int randFamNum = random(familyNames.size() - 1);
+				Family chosenFamily = families.get(familyNames.get(randFamNum));
+				if (chosenFamily != family)
+				{
+					int randPerNum = random(chosenFamily.getSize() - 1);
+					Person chosenPerson = chosenFamily.getPerson(randPerNum);
+
+					if (!used.contains(chosenPerson))
+					{
+						person.setGiftTo(chosenPerson);
+						used.add(chosenPerson);
+						stop = false;
+					}
+				}
+			}
+		}
 	}
 
 	private int random(int max)

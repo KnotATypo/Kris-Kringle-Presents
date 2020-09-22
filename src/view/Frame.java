@@ -39,4 +39,9 @@ public class Frame extends JFrame
 		if(!onlyTable)
 			upperPanel.updateData();
 	}
+
+	public void showResult()
+	{
+		new ResultWindow(engine);
+	}
 }
