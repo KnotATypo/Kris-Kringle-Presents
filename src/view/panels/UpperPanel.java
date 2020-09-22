@@ -19,7 +19,7 @@ public class UpperPanel extends JPanel
 		FamilyPanel familyPanel = new FamilyPanel(engine, table, frame);
 		SettingsPanel settings = new SettingsPanel();
 		memberPanel = new MemberPanel(engine, frame);
-		ControlPanel controls = new ControlPanel();
+		ControlPanel controls = new ControlPanel(engine);
 		
 		add(familyPanel);
 		add(settings);

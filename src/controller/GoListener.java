@@ -1,8 +1,6 @@
 package controller;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import model.Engine;
 
 public class GoListener extends AbstractEngineListener
@@ -16,7 +14,7 @@ public class GoListener extends AbstractEngineListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		
+		engine.run();
 	}
 
 }

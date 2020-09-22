@@ -4,6 +4,7 @@ public class Person
 {
 	public String name;
 	private String giftTo;
+	public boolean used;
 	
 	public Person(String name)
 	{
