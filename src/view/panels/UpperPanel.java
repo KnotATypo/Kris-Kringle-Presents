@@ -17,7 +17,7 @@ public class UpperPanel extends JPanel
 		setLayout(new GridLayout(2, 1));
 
 		FamilyPanel familyPanel = new FamilyPanel(engine, table, frame);
-		memberPanel = new MemberPanel(engine);
+		memberPanel = new MemberPanel(engine, frame);
 		
 		add(familyPanel);
 		add(memberPanel);

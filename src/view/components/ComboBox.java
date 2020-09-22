@@ -33,4 +33,9 @@ public class ComboBox extends JComponent
 		for(String familyName : data.keySet())
 			cbm.addElement(familyName);
 	}
+	
+	public String getSelectedItem()
+	{
+		return selectionBox.getSelectedItem().toString();
+	}
 }

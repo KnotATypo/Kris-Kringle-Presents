@@ -6,7 +6,9 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controller.AddMemberListener;
 import model.Engine;
+import view.Frame;
 import view.components.ComboBox;
 
 @SuppressWarnings("serial")
@@ -15,7 +17,7 @@ public class MemberPanel extends JPanel
 	private ComboBox familySelection;
 	private Engine engine;
 	
-	public MemberPanel(Engine engine)
+	public MemberPanel(Engine engine, Frame frame)
 	{
 		setLayout(new FlowLayout());
 		
@@ -24,6 +26,8 @@ public class MemberPanel extends JPanel
 		JButton memberButton = new JButton("New Member");
 		JTextField memberField = new JTextField();
 		familySelection = new ComboBox();
+		
+		memberButton.addActionListener(new AddMemberListener(engine, frame, memberField, familySelection));
 		
 		memberField.setColumns(10);
 		
