@@ -36,8 +36,7 @@ public class Table extends JComponent
 		table.setModel(dtm);
 		
 		for(Entry<String, Family> family : data.entrySet())
-		{
 			dtm.addColumn(family.getKey(), family.getValue().toVector());
-		}
+
 	}
 }
