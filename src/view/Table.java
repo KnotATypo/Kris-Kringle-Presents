@@ -31,7 +31,10 @@ public class Table extends JComponent
 	}
 
 	public void updateData(Map<String, Family> data)
-	{		
+	{
+		dtm = new DefaultTableModel();
+		table.setModel(dtm);
+		
 		for(Entry<String, Family> family : data.entrySet())
 		{
 			dtm.addColumn(family.getKey(), family.getValue().toVector());
