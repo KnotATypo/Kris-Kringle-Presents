@@ -1,7 +1,9 @@
 package view;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import model.Engine;
 import view.components.Table;
@@ -23,6 +25,9 @@ public class Frame extends JFrame
 		
 		table = new Table(engine);
 		upperPanel = new UpperPanel(engine, table, this);
+		
+//		table.setBorder(BorderFactory.createMatteBorder(1, 0, 0, 0, Color.black));
+		upperPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, Color.black));
 
 		add(upperPanel);
 		add(table);

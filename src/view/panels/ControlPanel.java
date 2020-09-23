@@ -1,28 +1,27 @@
 package view.panels;
 
-import java.awt.FlowLayout;
+import java.awt.BorderLayout;
 
-import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
-import controller.GoListener;
 import model.Engine;
 import view.Frame;
+import view.components.ControlButtons;
 
 @SuppressWarnings("serial")
 public class ControlPanel extends JPanel
 {
 	public ControlPanel(Engine engine, Frame frame)
 	{
-		setLayout(new FlowLayout());
+		setLayout(new BorderLayout());
 		
-		JLabel title = new JLabel("Controls:");
-		JButton go = new JButton("Go");
+		JLabel title = new JLabel("Controls:", SwingConstants.CENTER);
+		ControlButtons buttons = new ControlButtons(engine, frame);
 		
-		go.addActionListener(new GoListener(engine, frame));
-		
-		add(title);
-		add(go);
+		add(title, BorderLayout.NORTH);
+		add(buttons, BorderLayout.CENTER);
 	}
 }
