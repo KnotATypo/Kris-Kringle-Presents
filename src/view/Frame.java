@@ -49,4 +49,9 @@ public class Frame extends JFrame
 	{
 		new ResultWindow(engine);
 	}
+
+	public void removeMember()
+	{
+		engine.removeMember(table.getSelected());
+	}
 }

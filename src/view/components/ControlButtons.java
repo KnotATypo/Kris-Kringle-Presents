@@ -22,7 +22,7 @@ public class ControlButtons extends JLabel
 		JButton remove = new JButton("Remove Selected");
 
 		go.addActionListener(new GoListener(engine, frame, ignoreFamily));
-		remove.addActionListener(new RemoveListener());
+		remove.addActionListener(new RemoveListener(engine, frame));
 
 		add(go);
 		add(remove);

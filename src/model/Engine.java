@@ -61,10 +61,10 @@ public class Engine
 			boolean stop = true;
 
 			while (stop)
-			{	
+			{
 				int randFamNum = random(familyNames.size() - 1);
 				Family chosenFamily = families.get(familyNames.get(randFamNum));
-				
+
 				if (ignoreFamily || chosenFamily != family)
 				{
 					int randPerNum = random(chosenFamily.getSize() - 1);
@@ -85,5 +85,21 @@ public class Engine
 	private int random(int max)
 	{
 		return (int) (Math.random() * (max + 1));
+	}
+
+	public void removeMember(String nameToRemove)
+	{
+		topLoop: for (Entry<String, Family> entry : families.entrySet())
+		{
+			Family family = entry.getValue();
+			for (String person : family.toVector())
+			{
+				if (person.equals(nameToRemove))
+				{
+					family.remove(person);
+					break topLoop;
+				}
+			}
+		}
 	}
 }

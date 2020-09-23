@@ -39,4 +39,9 @@ public class Table extends JComponent
 			dtm.addColumn(family.getKey(), family.getValue().toVector());
 
 	}
+
+	public String getSelected()
+	{
+		return (String) dtm.getValueAt(table.getSelectedRow(), table.getSelectedColumn());
+	}
 }

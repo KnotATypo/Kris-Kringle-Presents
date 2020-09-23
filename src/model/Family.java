@@ -39,4 +39,17 @@ public class Family
 	{
 		return family.get(i);
 	}
+
+	public void remove(String name)
+	{
+		for (Person person : family)
+		{
+			if (person.name == name)
+			{
+				family.remove(person);
+				break;
+			}
+		}
+		size--;
+	}
 }
