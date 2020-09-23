@@ -24,9 +24,8 @@ public class Frame extends JFrame
 		this.engine = engine;
 		
 		table = new Table(engine);
-		upperPanel = new UpperPanel(engine, table, this);
+		upperPanel = new UpperPanel(table, this);
 		
-//		table.setBorder(BorderFactory.createMatteBorder(1, 0, 0, 0, Color.black));
 		upperPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, Color.black));
 
 		add(upperPanel);
@@ -53,5 +52,10 @@ public class Frame extends JFrame
 	public void removeMember()
 	{
 		engine.removeMember(table.getSelected());
+	}
+	
+	public Engine getEngine()
+	{
+		return engine;
 	}
 }

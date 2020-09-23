@@ -5,19 +5,18 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.AddFamilyListener;
-import model.Engine;
 import view.Frame;
 import view.components.Table;
 
 @SuppressWarnings("serial")
 public class FamilyPanel extends JPanel
 {
-	public FamilyPanel(Engine engine, Table table, Frame frame)
+	public FamilyPanel(Table table, Frame frame)
 	{
 		JTextField familyField = new JTextField();
 		JButton familyButton = new JButton("New Family");
 		
-		AddFamilyListener listener = new AddFamilyListener(engine, frame, familyField);
+		AddFamilyListener listener = new AddFamilyListener(frame, familyField);
 
 		familyButton.addActionListener(listener);
 		familyField.addActionListener(listener);

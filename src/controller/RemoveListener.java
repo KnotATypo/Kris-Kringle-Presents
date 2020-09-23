@@ -1,15 +1,14 @@
 package controller;
 
 import java.awt.event.ActionEvent;
-import model.Engine;
 import view.Frame;
 
 public class RemoveListener extends AbstractListener
 {
 
-	public RemoveListener(Engine engine, Frame frame)
+	public RemoveListener(Frame frame)
 	{
-		super(engine, frame);
+		super(frame);
 	}
 
 	@Override

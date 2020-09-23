@@ -4,16 +4,15 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.JCheckBox;
 
-import model.Engine;
 import view.Frame;
 
 public class GoListener extends AbstractListener
 {
 	private JCheckBox ignoreFamily;
 	
-	public GoListener(Engine engine, Frame frame, JCheckBox ignoreFamily)
+	public GoListener(Frame frame, JCheckBox ignoreFamily)
 	{
-		super(engine, frame);
+		super(frame);
 		this.ignoreFamily = ignoreFamily;
 	}
 

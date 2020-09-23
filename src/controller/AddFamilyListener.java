@@ -3,16 +3,15 @@ package controller;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
-import model.Engine;
 import view.Frame;
 
 public class AddFamilyListener extends AbstractListener
 {
 	private JTextField field;
 	
-	public AddFamilyListener(Engine engine, Frame frame, JTextField field)
+	public AddFamilyListener(Frame frame, JTextField field)
 	{
-		super(engine, frame);
+		super(frame);
 		this.field = field;
 	}
 

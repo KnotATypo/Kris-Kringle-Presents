@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.JTextField;
 
-import model.Engine;
 import view.Frame;
 import view.components.ComboBox;
 
@@ -13,9 +12,9 @@ public class AddMemberListener extends AbstractListener
 	private JTextField field;
 	private ComboBox familySelection;
 	
-	public AddMemberListener(Engine engine, Frame frame, JTextField field, ComboBox familySelection)
+	public AddMemberListener(Frame frame, JTextField field, ComboBox familySelection)
 	{
-		super(engine, frame);
+		super(frame);
 		this.field = field;
 		this.familySelection = familySelection;
 	}
