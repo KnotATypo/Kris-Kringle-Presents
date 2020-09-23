@@ -15,7 +15,7 @@ public class RemoveListener extends AbstractListener
 	public void actionPerformed(ActionEvent e)
 	{
 		frame.removeMember();
-		frame.updateData(false);
+		frame.updateData(true);
 	}
 
 }
