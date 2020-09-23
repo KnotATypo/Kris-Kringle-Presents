@@ -15,7 +15,7 @@ public class FamilyPanel extends JPanel
 	{
 		JTextField familyField = new JTextField();
 		JButton familyButton = new JButton("New Family");
-		
+
 		AddFamilyListener listener = new AddFamilyListener(frame, familyField);
 
 		familyButton.addActionListener(listener);

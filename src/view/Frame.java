@@ -15,18 +15,19 @@ public class Frame extends JFrame
 	private Engine engine;
 	private Table table;
 	private UpperPanel upperPanel;
-	
+
 	public Frame(Engine engine)
 	{
 		super("Kris Kringle Presents");
 		setLayout(new GridLayout(2, 1));
-		
+
 		this.engine = engine;
-		
+
 		table = new Table(engine);
 		upperPanel = new UpperPanel(table, this);
-		
-		upperPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, Color.black));
+
+		upperPanel.setBorder(
+				BorderFactory.createMatteBorder(0, 0, 2, 0, Color.black));
 
 		add(upperPanel);
 		add(table);
@@ -39,8 +40,8 @@ public class Frame extends JFrame
 	public void updateData(boolean onlyTable)
 	{
 		table.updateData(engine.getFamilies());
-		
-		if(!onlyTable)
+
+		if (!onlyTable)
 			upperPanel.updateData();
 	}
 
@@ -53,7 +54,7 @@ public class Frame extends JFrame
 	{
 		engine.removeMember(table.getSelected());
 	}
-	
+
 	public Engine getEngine()
 	{
 		return engine;

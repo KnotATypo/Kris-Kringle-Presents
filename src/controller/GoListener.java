@@ -9,7 +9,7 @@ import view.Frame;
 public class GoListener extends AbstractListener
 {
 	private JCheckBox ignoreFamily;
-	
+
 	public GoListener(Frame frame, JCheckBox ignoreFamily)
 	{
 		super(frame);

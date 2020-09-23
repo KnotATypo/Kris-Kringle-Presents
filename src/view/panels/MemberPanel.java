@@ -16,24 +16,25 @@ public class MemberPanel extends JPanel
 {
 	private ComboBox familySelection;
 	private Engine engine;
-	
+
 	public MemberPanel(Frame frame)
 	{
 		setLayout(new FlowLayout());
-		
+
 		engine = frame.getEngine();
-		
+
 		JButton memberButton = new JButton("New Member");
 		JTextField memberField = new JTextField();
 		familySelection = new ComboBox();
-		
-		AddMemberListener listener = new AddMemberListener(frame, memberField, familySelection);
-		
+
+		AddMemberListener listener = new AddMemberListener(frame, memberField,
+				familySelection);
+
 		memberButton.addActionListener(listener);
 		memberField.addActionListener(listener);
-		
+
 		memberField.setColumns(10);
-		
+
 		add(memberButton);
 		add(familySelection);
 		add(memberField);

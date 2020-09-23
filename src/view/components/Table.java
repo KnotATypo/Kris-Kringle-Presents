@@ -34,14 +34,15 @@ public class Table extends JComponent
 	{
 		dtm = new DefaultTableModel();
 		table.setModel(dtm);
-		
-		for(Entry<String, Family> family : data.entrySet())
+
+		for (Entry<String, Family> family : data.entrySet())
 			dtm.addColumn(family.getKey(), family.getValue().toVector());
 
 	}
 
 	public String getSelected()
 	{
-		return (String) dtm.getValueAt(table.getSelectedRow(), table.getSelectedColumn());
+		return (String) dtm.getValueAt(table.getSelectedRow(),
+				table.getSelectedColumn());
 	}
 }

@@ -11,8 +11,9 @@ public class AddMemberListener extends AbstractListener
 {
 	private JTextField field;
 	private ComboBox familySelection;
-	
-	public AddMemberListener(Frame frame, JTextField field, ComboBox familySelection)
+
+	public AddMemberListener(Frame frame, JTextField field,
+			ComboBox familySelection)
 	{
 		super(frame);
 		this.field = field;
@@ -24,7 +25,7 @@ public class AddMemberListener extends AbstractListener
 	{
 		engine.addMember(familySelection.getSelectedItem(), field.getText());
 		field.setText("");
-		
+
 		frame.updateData(true);
 	}
 

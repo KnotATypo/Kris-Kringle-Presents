@@ -16,11 +16,10 @@ public class ControlPanel extends JPanel
 	public ControlPanel(Frame frame, JCheckBox ignoreFamily)
 	{
 		setLayout(new BorderLayout());
-		
-		;
+
 		JLabel title = new JLabel("Controls:", SwingConstants.CENTER);
 		ControlButtons buttons = new ControlButtons(frame, ignoreFamily);
-		
+
 		add(title, BorderLayout.NORTH);
 		add(buttons, BorderLayout.CENTER);
 	}

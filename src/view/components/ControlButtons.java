@@ -16,7 +16,7 @@ public class ControlButtons extends JLabel
 	public ControlButtons(Frame frame, JCheckBox ignoreFamily)
 	{
 		setLayout(new FlowLayout());
-		
+
 		JButton go = new JButton("Go");
 		JButton remove = new JButton("Remove Selected");
 

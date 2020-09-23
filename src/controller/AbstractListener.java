@@ -9,7 +9,7 @@ public abstract class AbstractListener implements ActionListener
 {
 	protected Frame frame;
 	protected Engine engine;
-	
+
 	public AbstractListener(Frame frame)
 	{
 		this.frame = frame;

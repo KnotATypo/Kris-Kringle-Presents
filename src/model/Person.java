@@ -4,7 +4,7 @@ public class Person
 {
 	public String name;
 	private Person giftTo;
-	
+
 	public Person(String name)
 	{
 		this.name = name;
@@ -14,12 +14,12 @@ public class Person
 	{
 		return giftTo;
 	}
-	
+
 	public void setGiftTo(Person person)
 	{
 		giftTo = person;
 	}
-	
+
 	public String toString()
 	{
 		return String.format("Name: %s, Gifting To: %s", name, giftTo.name);
