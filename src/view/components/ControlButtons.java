@@ -7,6 +7,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 
 import controller.GoListener;
+import controller.RemoveListener;
 import model.Engine;
 import view.Frame;
 
@@ -18,9 +19,12 @@ public class ControlButtons extends JLabel
 		setLayout(new FlowLayout());
 		
 		JButton go = new JButton("Go");
+		JButton remove = new JButton("Remove Selected");
 
 		go.addActionListener(new GoListener(engine, frame, ignoreFamily));
+		remove.addActionListener(new RemoveListener());
 
 		add(go);
+		add(remove);
 	}
 }

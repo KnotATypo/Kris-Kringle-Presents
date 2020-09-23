@@ -7,7 +7,7 @@ import javax.swing.JCheckBox;
 import model.Engine;
 import view.Frame;
 
-public class GoListener extends AbstractFrameListener
+public class GoListener extends AbstractListener
 {
 	private JCheckBox ignoreFamily;
 	
