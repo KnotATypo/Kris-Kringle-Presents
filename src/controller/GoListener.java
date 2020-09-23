@@ -19,7 +19,21 @@ public class GoListener extends AbstractListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		engine.run(ignoreFamily.isSelected());
+		boolean success = false;
+		int index = 1;
+		
+		while (!success)
+		{
+			try
+			{
+				engine.run(ignoreFamily.isSelected());
+				success = true;
+			} catch (Exception exeption)
+			{
+				System.out.println("Attempt: " + index++);
+			}
+		}
+
 		frame.showResult();
 	}
 

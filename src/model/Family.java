@@ -34,6 +34,16 @@ public class Family
 
 		return returnVector;
 	}
+	
+	public Person[] toArray()
+	{
+		Person[] array = new Person[size];
+		
+		for (int i = 0; i < size; i++)
+			array[i] = family.get(i);
+
+		return array;
+	}
 
 	public Person getPerson(int i)
 	{

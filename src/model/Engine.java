@@ -42,49 +42,48 @@ public class Engine
 
 	public void run(boolean ignoreFamily)
 	{
+		List<Person> used = new ArrayList<Person>();
+
 		for (Entry<String, Family> entry : families.entrySet())
 		{
 			Family family = entry.getValue();
 			for (int i = 0; i < family.getSize(); i++)
-				assignGiftees(family, ignoreFamily);
-		}
-	}
-
-	private void assignGiftees(Family family, boolean ignoreFamily)
-	{
-		List<String> familyNames = new ArrayList<String>(families.keySet());
-		List<Person> used = new ArrayList<Person>();
-
-		for (int i = 0; i < family.getSize(); i++)
-		{
-			Person person = family.getPerson(i);
-			boolean stop = true;
-
-			while (stop)
 			{
-				int randFamNum = random(familyNames.size() - 1);
-				Family chosenFamily = families.get(familyNames.get(randFamNum));
+				Person person = family.getPerson(i);
+				List<Person> avaliable = avaliablePeople(used, family,
+						ignoreFamily, person);
 
-				if (ignoreFamily || chosenFamily != family)
-				{
-					int randPerNum = random(chosenFamily.getSize() - 1);
-					Person chosenPerson = chosenFamily.getPerson(randPerNum);
+				int randNum = 0;
+				if (avaliable.size() != 0)
+					randNum = random(avaliable.size() - 1);
 
-					if (!used.contains(chosenPerson)
-							&& !chosenPerson.equals(person))
-					{
-						person.setGiftTo(chosenPerson);
-						used.add(chosenPerson);
-						stop = false;
-					}
-				}
+				Person chosen = avaliable.get(randNum);
+
+				person.setGiftTo(chosen);
+				used.add(chosen);
 			}
 		}
 	}
 
-	private int random(int max)
+	private List<Person> avaliablePeople(List<Person> used, Family currFam,
+			boolean ignoreFamily, Person currPerson)
 	{
-		return (int) (Math.random() * (max + 1));
+		List<Person> avaliable = new ArrayList<Person>();
+
+		for (Entry<String, Family> entry : families.entrySet())
+		{
+			Family family = entry.getValue();
+			if (ignoreFamily || family != currFam)
+			{
+				for (Person person : family.toArray())
+				{
+					if (!used.contains(person) && person != currPerson)
+						avaliable.add(person);
+				}
+			}
+		}
+
+		return avaliable;
 	}
 
 	public void removeMember(String nameToRemove)
@@ -101,5 +100,10 @@ public class Engine
 				}
 			}
 		}
+	}
+
+	private int random(int max)
+	{
+		return (int) (Math.random() * (max + 1));
 	}
 }

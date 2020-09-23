@@ -46,7 +46,7 @@ public class ResultWindow extends JFrame
 		add(table.getTableHeader(), BorderLayout.NORTH);
 		add(table, BorderLayout.CENTER);
 
-		setBounds(520, 320, 300, 200);
+		setBounds(520, 320, 250, 300);
 		setVisible(true);
 	}
 }

@@ -22,6 +22,11 @@ public class Person
 
 	public String toString()
 	{
-		return String.format("Name: %s, Gifting To: %s", name, giftTo.name);
+		return String.format(name);
+	}
+	
+	public boolean equals(Person person)
+	{
+		return (person.name == name);
 	}
 }
