@@ -14,12 +14,13 @@ import view.components.ControlButtons;
 @SuppressWarnings("serial")
 public class ControlPanel extends JPanel
 {
-	public ControlPanel(Engine engine, Frame frame)
+	public ControlPanel(Engine engine, Frame frame, JCheckBox ignoreFamily)
 	{
 		setLayout(new BorderLayout());
 		
+		;
 		JLabel title = new JLabel("Controls:", SwingConstants.CENTER);
-		ControlButtons buttons = new ControlButtons(engine, frame);
+		ControlButtons buttons = new ControlButtons(engine, frame, ignoreFamily);
 		
 		add(title, BorderLayout.NORTH);
 		add(buttons, BorderLayout.CENTER);

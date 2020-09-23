@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
+import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 
 import model.Engine;
@@ -19,10 +20,12 @@ public class UpperPanel extends JPanel
 	{
 		setLayout(new GridLayout(2, 2));
 
+		JCheckBox ignoreFamily = new JCheckBox("Ignore families");
+		
 		FamilyPanel familyPanel = new FamilyPanel(engine, table, frame);
-		SettingsPanel settings = new SettingsPanel();
+		SettingsPanel settings = new SettingsPanel(ignoreFamily);
 		memberPanel = new MemberPanel(engine, frame);
-		ControlPanel controls = new ControlPanel(engine, frame);
+		ControlPanel controls = new ControlPanel(engine, frame, ignoreFamily);
 		
 		familyPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 1, Color.black));
 		settings.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.black));

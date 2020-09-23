@@ -13,16 +13,14 @@ import view.Frame;
 @SuppressWarnings("serial")
 public class ControlButtons extends JLabel
 {
-	public ControlButtons(Engine engine, Frame frame)
+	public ControlButtons(Engine engine, Frame frame, JCheckBox ignoreFamily)
 	{
 		setLayout(new FlowLayout());
 		
 		JButton go = new JButton("Go");
-		JCheckBox ignoreFamily = new JCheckBox("Ignore families");
 
-		go.addActionListener(new GoListener(engine, frame));
+		go.addActionListener(new GoListener(engine, frame, ignoreFamily));
 
 		add(go);
-		add(ignoreFamily);
 	}
 }

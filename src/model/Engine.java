@@ -40,17 +40,17 @@ public class Engine
 		return most;
 	}
 
-	public void run()
+	public void run(boolean ignoreFamily)
 	{
 		for (Entry<String, Family> entry : families.entrySet())
 		{
 			Family family = entry.getValue();
 			for (int i = 0; i < family.getSize(); i++)
-				assignGiftees(family);
+				assignGiftees(family, ignoreFamily);
 		}
 	}
 
-	private void assignGiftees(Family family)
+	private void assignGiftees(Family family, boolean ignoreFamily)
 	{
 		List<String> familyNames = new ArrayList<String>(families.keySet());
 		List<Person> used = new ArrayList<Person>();
@@ -61,15 +61,17 @@ public class Engine
 			boolean stop = true;
 
 			while (stop)
-			{
+			{	
 				int randFamNum = random(familyNames.size() - 1);
 				Family chosenFamily = families.get(familyNames.get(randFamNum));
-				if (chosenFamily != family)
+				
+				if (ignoreFamily || chosenFamily != family)
 				{
 					int randPerNum = random(chosenFamily.getSize() - 1);
 					Person chosenPerson = chosenFamily.getPerson(randPerNum);
 
-					if (!used.contains(chosenPerson))
+					if (!used.contains(chosenPerson)
+							&& !chosenPerson.equals(person))
 					{
 						person.setGiftTo(chosenPerson);
 						used.add(chosenPerson);
