@@ -10,7 +10,7 @@ public class Client
 	{
 		Engine engine = new Engine();
 		
-		addTest(engine);
+//		addTest(engine);
 
 		Frame frame = new Frame(engine);
 		
