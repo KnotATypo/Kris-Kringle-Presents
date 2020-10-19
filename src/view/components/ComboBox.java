@@ -1,41 +1,38 @@
 package view.components;
 
-import java.awt.FlowLayout;
-import java.util.Map;
-
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
-import javax.swing.JComponent;
-
 import model.Family;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.Map;
 
 @SuppressWarnings("serial")
 public class ComboBox extends JComponent
 {
-	private JComboBox<String> selectionBox;
-	private DefaultComboBoxModel<String> cbm;
+    private final JComboBox<String> selectionBox;
+    private DefaultComboBoxModel<String> cbm;
 
-	public ComboBox()
-	{
-		setLayout(new FlowLayout());
+    public ComboBox()
+    {
+        setLayout(new FlowLayout());
 
-		cbm = new DefaultComboBoxModel<String>();
-		selectionBox = new JComboBox<String>(cbm);
+        cbm = new DefaultComboBoxModel<>();
+        selectionBox = new JComboBox<>(cbm);
 
-		add(selectionBox);
-	}
+        add(selectionBox);
+    }
 
-	public void updateData(Map<String, Family> data)
-	{
-		cbm = new DefaultComboBoxModel<String>();
-		selectionBox.setModel(cbm);
+    public void updateData(Map<String, Family> data)
+    {
+        cbm = new DefaultComboBoxModel<>();
+        selectionBox.setModel(cbm);
 
-		for (String familyName : data.keySet())
-			cbm.addElement(familyName);
-	}
+        for (String familyName : data.keySet())
+            cbm.addElement(familyName);
+    }
 
-	public String getSelectedItem()
-	{
-		return selectionBox.getSelectedItem().toString();
-	}
+    public String getSelectedItem()
+    {
+        return selectionBox.getSelectedItem().toString();
+    }
 }

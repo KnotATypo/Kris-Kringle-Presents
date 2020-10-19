@@ -6,60 +6,65 @@ import java.util.Vector;
 
 public class Family
 {
-	private List<Person> family = new ArrayList<Person>();
-	private int size;
+    private final List<Person> family = new ArrayList<>();
+    private int size;
 
-	public Family()
-	{
-		size = 0;
-	}
+    public Family()
+    {
+        size = 0;
+    }
 
-	public void addMember(String name)
-	{
-		family.add(new Person(name));
-		size++;
-	}
+    public void addMember(String name)
+    {
+        family.add(new Person(name));
+        size++;
+    }
 
-	public int getSize()
-	{
-		return size;
-	}
+    public Vector<String> toVector()
+    {
+        Vector<String> returnVector = new Vector<>();
 
-	public Vector<String> toVector()
-	{
-		Vector<String> returnVector = new Vector<String>();
+        for (Person person : family)
+            returnVector.add(person.name);
 
-		for (Person person : family)
-			returnVector.add(person.name);
+        return returnVector;
+    }
 
-		return returnVector;
-	}
-	
-	public Person[] toArray()
-	{
-		Person[] array = new Person[size];
-		
-		for (int i = 0; i < size; i++)
-			array[i] = family.get(i);
+    public Person[] toArray()
+    {
+        Person[] array = new Person[size];
 
-		return array;
-	}
+        for (int i = 0; i < size; i++)
+            array[i] = family.get(i);
 
-	public Person getPerson(int i)
-	{
-		return family.get(i);
-	}
+        return array;
+    }
 
-	public void remove(String name)
-	{
-		for (Person person : family)
-		{
-			if (person.name == name)
-			{
-				family.remove(person);
-				break;
-			}
-		}
-		size--;
-	}
+    public void remove(String name)
+    {
+        for (Person person : family)
+        {
+            if (person.name.equals(name))
+            {
+                family.remove(person);
+                break;
+            }
+        }
+        size--;
+    }
+
+    public boolean contains(Person person)
+    {
+        return family.contains(person);
+    }
+
+    public Person getPerson(int i)
+    {
+        return family.get(i);
+    }
+
+    public int getSize()
+    {
+        return size;
+    }
 }

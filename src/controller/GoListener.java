@@ -1,40 +1,39 @@
 package controller;
 
-import java.awt.event.ActionEvent;
-
-import javax.swing.JCheckBox;
-
 import view.Frame;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
 
 public class GoListener extends AbstractListener
 {
-	private JCheckBox ignoreFamily;
+    private final JCheckBox ignoreFamily;
 
-	public GoListener(Frame frame, JCheckBox ignoreFamily)
-	{
-		super(frame);
-		this.ignoreFamily = ignoreFamily;
-	}
+    public GoListener(Frame frame, JCheckBox ignoreFamily)
+    {
+        super(frame);
+        this.ignoreFamily = ignoreFamily;
+    }
 
-	@Override
-	public void actionPerformed(ActionEvent e)
-	{
-		boolean success = false;
-		int index = 1;
-		
-		while (!success)
-		{
-			try
-			{
-				engine.run(ignoreFamily.isSelected());
-				success = true;
-			} catch (Exception exeption)
-			{
-				System.out.println("Attempt: " + index++);
-			}
-		}
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        boolean success = false;
+        int index = 1;
 
-		frame.showResult();
-	}
+        while (!success)
+        {
+            try
+            {
+                engine.run(ignoreFamily.isSelected());
+                success = true;
+            } catch (Exception exeption)
+            {
+                System.out.println("Attempt: " + index++);
+            }
+        }
+
+        frame.showResult();
+    }
 
 }

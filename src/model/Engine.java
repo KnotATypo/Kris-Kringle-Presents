@@ -8,102 +8,89 @@ import java.util.Map.Entry;
 
 public class Engine
 {
-	private Map<String, Family> families = new HashMap<String, Family>();
+    private final Map<String, Family> families = new HashMap<>();
 
-	public void newFamily(String name)
-	{
-		families.put(name, new Family());
-	}
+    public void newFamily(String name)
+    {
+        families.put(name, new Family());
+    }
 
-	public void addMember(String familyName, String member)
-	{
-		Family family = families.get(familyName);
-		family.addMember(member);
-	}
+    public void addMember(String familyName, String member)
+    {
+        Family family = families.get(familyName);
+        family.addMember(member);
+    }
 
-	public Map<String, Family> getFamilies()
-	{
-		return families;
-	}
+    public Map<String, Family> getFamilies()
+    {
+        return families;
+    }
 
-	public int highNumOfMembers()
-	{
-		int most = 0;
+    public void run(boolean ignoreFamily)
+    {
+        List<Person> used = new ArrayList<>();
 
-		for (Family family : families.values())
-		{
-			int size = family.getSize();
-			if (size > most)
-				most = size;
-		}
+        for (Entry<String, Family> entry : families.entrySet())
+        {
+            Family family = entry.getValue();
+            for (int i = 0; i < family.getSize(); i++)
+            {
+                Person person = family.getPerson(i);
+                List<Person> available = availablePeople(used, family,
+                        ignoreFamily, person);
 
-		return most;
-	}
+                int randNum = 0;
+                if (available.size() != 0)
+                    randNum = random(available.size() - 1);
 
-	public void run(boolean ignoreFamily)
-	{
-		List<Person> used = new ArrayList<Person>();
+                Person chosen = available.get(randNum);
 
-		for (Entry<String, Family> entry : families.entrySet())
-		{
-			Family family = entry.getValue();
-			for (int i = 0; i < family.getSize(); i++)
-			{
-				Person person = family.getPerson(i);
-				List<Person> avaliable = avaliablePeople(used, family,
-						ignoreFamily, person);
+                person.setGiftTo(chosen);
+                used.add(chosen);
+            }
+        }
+    }
 
-				int randNum = 0;
-				if (avaliable.size() != 0)
-					randNum = random(avaliable.size() - 1);
+    private List<Person> availablePeople(List<Person> used, Family currFam,
+                                         boolean ignoreFamily, Person currPerson)
+    {
+        List<Person> available = new ArrayList<>();
 
-				Person chosen = avaliable.get(randNum);
+        for (Entry<String, Family> entry : families.entrySet())
+        {
+            Family family = entry.getValue();
+            if (ignoreFamily || family != currFam)
+            {
+                for (Person person : family.toArray())
+                {
+                    if (!used.contains(person) && person != currPerson)
+                        available.add(person);
+                }
+            }
+        }
 
-				person.setGiftTo(chosen);
-				used.add(chosen);
-			}
-		}
-	}
+        return available;
+    }
 
-	private List<Person> avaliablePeople(List<Person> used, Family currFam,
-			boolean ignoreFamily, Person currPerson)
-	{
-		List<Person> avaliable = new ArrayList<Person>();
+    public void removeMember(String nameToRemove)
+    {
+        topLoop:
+        for (Entry<String, Family> entry : families.entrySet())
+        {
+            Family family = entry.getValue();
+            for (String person : family.toVector())
+            {
+                if (person.equals(nameToRemove))
+                {
+                    family.remove(person);
+                    break topLoop;
+                }
+            }
+        }
+    }
 
-		for (Entry<String, Family> entry : families.entrySet())
-		{
-			Family family = entry.getValue();
-			if (ignoreFamily || family != currFam)
-			{
-				for (Person person : family.toArray())
-				{
-					if (!used.contains(person) && person != currPerson)
-						avaliable.add(person);
-				}
-			}
-		}
-
-		return avaliable;
-	}
-
-	public void removeMember(String nameToRemove)
-	{
-		topLoop: for (Entry<String, Family> entry : families.entrySet())
-		{
-			Family family = entry.getValue();
-			for (String person : family.toVector())
-			{
-				if (person.equals(nameToRemove))
-				{
-					family.remove(person);
-					break topLoop;
-				}
-			}
-		}
-	}
-
-	private int random(int max)
-	{
-		return (int) (Math.random() * (max + 1));
-	}
+    private int random(int max)
+    {
+        return (int) (Math.random() * (max + 1));
+    }
 }
